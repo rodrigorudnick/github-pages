@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário Klickpages</title>
+  <style>
+    /* Adicione seu estilo aqui, se quiser */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 400px;
+      margin: 50px auto;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <form klicksend-form-id='BEuAkyR' autocomplete='off' method="post" action="//handler.send.hotmart.com/subscription/BEuAkyR">
+    <input type="text" autocomplete="off" name="first_name" id="first_name" placeholder="Nome" value="">
+    <input type="email" autocomplete="off" name="email" id="email" placeholder="Email" value="" required>
+    <input type="text" autocomplete="off" name="phone" id="phone" placeholder="Whatsapp" value="">
+    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+      <input type="text" autocomplete='new-password' name="b_BEuAkyR" tabindex="-1" value="">
+    </div>
+    <button klicksend-form-submit-id='BEuAkyR'>Enviar</button>
+  </form>
+
+  <script>
+    var pageParams = new URLSearchParams(window.location.search);
+    var form = document.querySelector('form[klicksend-form-id="BEuAkyR"]');
+    var formActionUrl = new URL(form.action);
+    var formActionSearchParams = formActionUrl.searchParams.size > 0 ? formActionUrl.searchParams.toString() + '&' : '';
+    var combinedParams = formActionSearchParams + pageParams.toString();
+
+    form.action = formActionUrl.origin + formActionUrl.pathname + '?' + combinedParams;
+  </script>
+</body>
+</html>
